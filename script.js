@@ -1,11 +1,16 @@
 const container = document.querySelector('.message');
 container.innerHTML = 'Good luck!';
 
+//const reset = document.querySelector('.playAgain');
+//reset.style.display = 'none';
+
+let round = 1;
+let playerScore = 0;
+let computerScore = 0;
+
 //for (let i = 0; i < 5; i++) {
-function game () {
-    let round = 1;
-    let playerScore = 0;
-    let computerScore = 0;
+function game() {
+    //reset.style.display = 'none';
 
     const rock = document.querySelector('.rockButton');
     rock.addEventListener('click', playRoundRock);
@@ -87,11 +92,16 @@ function game () {
 
     function winner(e) {
         if (playerScore === 5) {
+            playerScore = 0;
+            computerScore = 0;
+            round = 0;
             container.innerHTML = "Player wins with 5 points!";
-            return game();
+
         } else if (computerScore === 5) {
+            playerScore = 0;
+            computerScore = 0;
+            round = 0;
             container.innerHTML = "Computer wins with 5 points!";
-            return game();
         }
     }
 }

@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 70px;
+    padding: 50px;
 }
 
 .title {
@@ -56,7 +56,7 @@ img {
 
 .message {
     background-color: rgb(233, 230, 230);
-    padding: 50px;
+    padding: 30px;
     border-radius: 30px;
     text-align: center;
     font-size: 24px;
