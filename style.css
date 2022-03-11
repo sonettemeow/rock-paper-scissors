@@ -10,14 +10,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
+    padding: 70px;
 }
 
 .title {
     font-size: 36px;
     font-weight: 900;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     color: rgb(54, 46, 40);
     margin-bottom: 70px;
 }
@@ -50,6 +50,8 @@ img {
 .messageBox {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .message {
@@ -60,4 +62,15 @@ img {
     font-size: 24px;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.playAgain {
+    display: none;
+    margin-top: 20px;
+    width: 210px;
+    height: 100px;
+    border-radius: 30px;
+    background-color: darkorange;
+    font-weight: bold;
+    font-size: large;
 }
