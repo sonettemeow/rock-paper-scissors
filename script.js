@@ -2,16 +2,12 @@ const container = document.querySelector('.message');
 container.innerHTML = 'Race to 5 points!<br>Good luck!';
 
 const reset = document.querySelector('.playAgain');
-//reset.style.display = 'none';
 
 let round = 1;
 let playerScore = 0;
 let computerScore = 0;
 
-//for (let i = 0; i < 5; i++) {
 function game() {
-    //reset.style.display = 'none';
-
     function computerPlay() {
         let choices = ['rock', 'paper', 'scissors'];
         let choice = choices[Math.floor(Math.random()*choices.length)];
@@ -110,13 +106,13 @@ function game() {
     function winner(e) {
         if (playerScore === 5) {
             reset.style.display = "block";
-            container.innerHTML = "Congratulations!<br>Player wins with 5 points!";
+            container.innerHTML = "GAME OVER<br>You win with 5 points!<br>Congratulations!";
             disableChoices();
             reset.addEventListener('click', gameReset);
 
         } else if (computerScore === 5) {
             reset.style.display = "block";
-            container.innerHTML = "Computer wins with 5 points!<br>Better luck next time!";
+            container.innerHTML = "GAME OVER<br>Computer wins with 5 points!<br>Better luck next time!";
             disableChoices();
             reset.addEventListener('click', gameReset);
         }
