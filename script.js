@@ -1,5 +1,5 @@
 const container = document.querySelector('.message');
-container.innerHTML = 'Good luck!';
+container.innerHTML = 'Race to 5 points!<br>Good luck!';
 
 //const reset = document.querySelector('.playAgain');
 //reset.style.display = 'none';
