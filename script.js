@@ -1,7 +1,7 @@
 const container = document.querySelector('.message');
 container.innerHTML = 'Race to 5 points!<br>Good luck!';
 
-//const reset = document.querySelector('.playAgain');
+const reset = document.querySelector('.playAgain');
 //reset.style.display = 'none';
 
 let round = 1;
@@ -90,18 +90,24 @@ function game() {
         }
     }
 
+    function scoreReset(e) {
+        reset.style.display = "none";
+        playerScore = 0;
+        computerScore = 0;
+        round = 1;
+        container.innerHTML = "Race to 5 points!<br>Good luck!";
+    } 
+
     function winner(e) {
         if (playerScore === 5) {
-            playerScore = 0;
-            computerScore = 0;
-            round = 0;
+            reset.style.display = "block";
             container.innerHTML = "Player wins with 5 points!";
+            reset.addEventListener('click', scoreReset);
 
         } else if (computerScore === 5) {
-            playerScore = 0;
-            computerScore = 0;
-            round = 0;
+            reset.style.display = "block";
             container.innerHTML = "Computer wins with 5 points!";
+            reset.addEventListener('click', scoreReset);
         }
     }
 }
