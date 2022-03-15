@@ -12,6 +12,12 @@ let computerScore = 0;
 function game() {
     //reset.style.display = 'none';
 
+    function computerPlay() {
+        let choices = ['rock', 'paper', 'scissors'];
+        let choice = choices[Math.floor(Math.random()*choices.length)];
+        return(choice);
+    }
+
     const rock = document.querySelector('.rockButton');
     rock.addEventListener('click', playRoundRock);
     
@@ -20,12 +26,6 @@ function game() {
     
     const scissors = document.querySelector('.scissorsButton');
     scissors.addEventListener('click', playRoundScissors);
-
-    function computerPlay() {
-        let choices = ['rock', 'paper', 'scissors'];
-        let choice = choices[Math.floor(Math.random()*choices.length)];
-        return(choice);
-    }
 
     function playRoundRock(e) {
         if (computerPlay() === 'paper') {
@@ -90,24 +90,35 @@ function game() {
         }
     }
 
-    function scoreReset(e) {
+    function gameReset(e) {
         reset.style.display = "none";
         playerScore = 0;
         computerScore = 0;
         round = 1;
         container.innerHTML = "Race to 5 points!<br>Good luck!";
-    } 
+        rock.addEventListener('click', playRoundRock);
+        paper.addEventListener('click', playRoundPaper);
+        scissors.addEventListener('click', playRoundScissors);
+    }
+
+    function disableChoices() {
+        rock.removeEventListener('click', playRoundRock);
+        paper.removeEventListener('click', playRoundPaper);
+        scissors.removeEventListener('click', playRoundScissors);
+    }
 
     function winner(e) {
         if (playerScore === 5) {
             reset.style.display = "block";
-            container.innerHTML = "Player wins with 5 points!";
-            reset.addEventListener('click', scoreReset);
+            container.innerHTML = "Congratulations!<br>Player wins with 5 points!";
+            disableChoices();
+            reset.addEventListener('click', gameReset);
 
         } else if (computerScore === 5) {
             reset.style.display = "block";
-            container.innerHTML = "Computer wins with 5 points!";
-            reset.addEventListener('click', scoreReset);
+            container.innerHTML = "Computer wins with 5 points!<br>Better luck next time!";
+            disableChoices();
+            reset.addEventListener('click', gameReset);
         }
     }
 }
